@@ -36,6 +36,9 @@ progress {
     width: 100%;
     height: 8px;
 }
+.sideMenu {
+    display: none;
+}
 
 /* 1 block */
 
@@ -43,7 +46,8 @@ progress {
     width: 100%;
     height: 100vh;
     /*background: #E9E9E9;*/
-    background-image: url("https://cdn.dribbble.com/users/1626229/screenshots/15256363/media/7a02e7b0cfc56b4041cbf28453c14f85.jpg");
+    background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/fs/c971d486020631.5d8cdc6794b1c.jpg");
+    /*background-image: url("https://cdn.dribbble.com/users/1626229/screenshots/15256363/media/7a02e7b0cfc56b4041cbf28453c14f85.jpg");*/
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -55,12 +59,12 @@ nav {
     align-items: center;
     background: white;
 }
-nav .wrapper {
+.main_block nav .wrapper {
     flex-direction: row;
     justify-content: space-between;
 }
 .nav__links {
-    width: 70%;
+    width: 90%;
     height: 100%;
     display: flex;
     justify-content: flex-end;
@@ -69,9 +73,13 @@ nav .wrapper {
 .nav__links a {
     margin-left: 10px;
 }
+.main_block .wrapper {
+    justify-content: center;
+    align-items: center;
+}
 .container_row {
     width: 90%;
-    height: 80vh;
+
     display: flex;
     flex-direction: row;
     justify-self: center;
@@ -86,14 +94,22 @@ nav .wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-self: center;
+    align-items: center;
+    background: white;
+    padding: 20px;
+}
+.container_row__text .text__description {
+    /*background: white;*/
+    /*color: black;*/
+    /*padding: 5px;*/
+    /*box-shadow: 5px 5px 20px white;*/
 }
 
 /* 2 block */
 
 .about_us {
     width: 100%;
-    height: 400px;
+    height: 300px;
 }
 .about_us .wrapper {
     justify-content: center;
@@ -370,7 +386,7 @@ footer .text__description {
     font-size: 15px;
 }
 footer .wrapper {
-    width: 80%;
+    width: 90%;
     flex-direction: row;
     justify-content: space-evenly;
 }
@@ -393,6 +409,7 @@ footer .wrapper {
 @media screen and (max-width: 920px) {
     #menu-bars {
         display: block;
+        z-index: 10;
     }
     .nav__links {
         display: none;
@@ -419,17 +436,27 @@ footer .wrapper {
     footer .wrapper {
         width: 90%;
     }
+    .container_row {
+        width: 100%;
+    }
     .container_row__img {
-        width: 0;
+        display: none;
     }
     .container_row__text {
         width: 64%;
     }
     .main_block {
-        background-size: auto;
+        /*background-size: auto;*/
     }
     .services .cells .item .text__description {
         max-height: 72px;
+    }
+    footer .wrapper .footer__authors .text__title, .numbers .item i, .item__detail .text__title {
+        font-size: calc(14px + 8 * ((100vw - 320px) / (1280 - 320)));
+    }
+    footer .wrapper .footer__authors .text__description, .footer__contacts .text__description,
+    .footer__links__col .text__description, .numbers .item i, .item__detail .text__description {
+        font-size: calc(12px + 8 * ((100vw - 320px) / (1280 - 320)));
     }
 }
 @media screen and (max-width: 690px) {
@@ -472,13 +499,7 @@ footer .wrapper {
         justify-content: center;
         text-align: center;
     }
-    footer .wrapper .footer__authors .text__title, .numbers .item i, .item__detail .text__title {
-        font-size: calc(14px + 8 * ((100vw - 320px) / (1280 - 320)));
-    }
-    footer .wrapper .footer__authors .text__description, .footer__contacts .text__description,
-    .footer__links__col .text__description, .numbers .item i, .item__detail .text__description {
-        font-size: calc(12px + 8 * ((100vw - 320px) / (1280 - 320)));
-    }
+
     .contact-form .wrapper {
         max-width: 100%;
         width: 90%;
@@ -492,6 +513,10 @@ footer .wrapper {
     }
 }
 @media screen and (max-width: 431px) {
+    .services .cells {
+        height: 100%;
+        justify-content: space-evenly;
+    }
     .services .cells .item {
         width: 100%;
         height: 120px;
@@ -530,3 +555,23 @@ footer .wrapper {
 }
 
 /* end */
+.alert {
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    z-index: 5;
+    background: white;
+}
+.mobile_menu {
+    height: 100vh;
+    width: 200px;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    top: 0;
+    right: 0;
+    background: white;
+}
